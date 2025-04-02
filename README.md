@@ -1,6 +1,7 @@
-# Pós em Desenvolvimento Android
+# Pós em Desenvolvimento de Aplicativos Móveis
 
-## Matéria: Desenvolvimento de Aplicativos Móveis
+## Matéria: Desenvolvimento Multiplataforma com Flutter 
+[![My Skills](https://skillicons.dev/icons?i=flutter&perline=3)](https://skillicons.dev)
 
 ### Unidade 02 - Atividade 2 - Finalizada
 
