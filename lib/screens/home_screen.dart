@@ -25,6 +25,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Meus Veículos'),
+        backgroundColor: const Color.fromARGB(47, 102, 127, 100),
+        centerTitle: true,
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
@@ -36,6 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: VehicleList(vehicles: _vehicles),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.push(
           context,
