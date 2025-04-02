@@ -1,4 +1,6 @@
-# Materia: Desenvolvimento de Aplicativos Móveis
+# Pós em Desenvolvimento Android
+
+## Matéria: Desenvolvimento de Aplicativos Móveis
 
 Atividade: Elabore um pequeno projeto de aplicativo que contenha as operações básicas 
 de manipulação de dados, a saber: listar, inserir, ler, atualizar e excluir.

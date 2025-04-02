@@ -10,11 +10,11 @@ class LoginScreen extends StatelessWidget {
       body: Container(
         // Cria um widget de contêiner
         padding: const EdgeInsets.only(
-          // Adiciona margens ao widget
+            // Adiciona margens ao widget
             top: 60, // Margem superior
             left: 40, // Margem esquerda
             right: 40 // Margem direita
-        ),
+            ),
         color: Colors.white, // Cor de fundo do widget
 
         // Cria um widget de lista vertical
@@ -28,7 +28,7 @@ class LoginScreen extends StatelessWidget {
               child: Image.asset("assets/logo.png"), // Carrega uma imagem
             ),
 
-
+            // Cria um widget de espaço vertical para o título
             const SizedBox(
               height: 25, // Espaço entre a imagem e o texto
               child: Text(
@@ -78,11 +78,10 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
 
-
             // Cria um widget de campo de texto
             TextFormField(
               keyboardType:
-              TextInputType.text, // Tipo de teclado para o campo de texto
+                  TextInputType.text, // Tipo de teclado para o campo de texto
               obscureText: true, // O campo de texto é oculto
               decoration: InputDecoration(
                 // Cria um widget de input de texto

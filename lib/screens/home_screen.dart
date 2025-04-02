@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gmveiculos/screens/login_screen.dart';
 import 'add_vehicle_screen.dart';
-import 'login_screen.dart';
-import 'vehicle_details_screen.dart';
 import '../models/vehicle.dart';
 import '../widgets/vehicle_list.dart';
 
@@ -25,11 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Lista de Veículos'),
-        backgroundColor: const Color.fromARGB(47, 102, 127, 100),
-        centerTitle: true,
-        titleTextStyle: const TextStyle(
-            fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
+        title: const Text('Meus Veículos'),
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
@@ -37,26 +32,16 @@ class _HomeScreenState extends State<HomeScreen> {
               context,
               MaterialPageRoute(builder: (ctx) => const LoginScreen()),
             ),
-          ),
+          )
         ],
       ),
-      body: VehicleList(
-        vehicles: _vehicles,
-        onTapVehicle: (vehicle) => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (ctx) => VehicleDetailsScreen(vehicle: vehicle),
-          ),
-        ),
-      ),
+      body: VehicleList(vehicles: _vehicles),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (ctx) => AddVehicleScreen(
-                    _addVehicle,
-                    onVehicleAdded: (Vehicle) {},
-                  )),
+            builder: (ctx) => AddVehicleScreen(onVehicleAdded: _addVehicle),
+          ),
         ),
         child: const Icon(Icons.add),
       ),

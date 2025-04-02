@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import '../models/vehicle.dart';
+import '../screens/vehicle_details_screen.dart';
 
 class VehicleList extends StatelessWidget {
   final List<Vehicle> vehicles;
-  final Function(Vehicle) onTapVehicle;
 
-  const VehicleList({
-    super.key,
-    required this.vehicles,
-    required this.onTapVehicle,
-  });
+  const VehicleList({super.key, required this.vehicles});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +17,12 @@ class VehicleList extends StatelessWidget {
             : Icons.motorcycle),
         title: Text(vehicles[index].name),
         subtitle: Text('${vehicles[index].currentKm} km'),
-        onTap: () => onTapVehicle(vehicles[index]),
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (ctx) => VehicleDetailsScreen(vehicle: vehicles[index]),
+          ),
+        ),
       ),
     );
   }

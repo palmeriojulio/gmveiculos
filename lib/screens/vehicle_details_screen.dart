@@ -1,76 +1,44 @@
 import 'package:flutter/material.dart';
+import 'add_maintenance_screen.dart';
 import '../models/vehicle.dart';
 
-class VehicleDetailsScreen extends StatefulWidget {
+class VehicleDetailsScreen extends StatelessWidget {
   final Vehicle vehicle;
 
   const VehicleDetailsScreen({super.key, required this.vehicle});
 
   @override
-  State<VehicleDetailsScreen> createState() => _VehicleDetailsScreenState();
-}
-
-class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.vehicle.name),
-        backgroundColor: const Color(0xFF1B5E20),
-        centerTitle: true,
-        titleTextStyle: const TextStyle(
-            fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
-      ),
+      appBar: AppBar(title: Text(vehicle.name)),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Tipo: ${widget.vehicle.type == 'car' ? 'Carro' : 'Moto'}',
-              style: const TextStyle(fontSize: 16),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Quilometragem: ${widget.vehicle.currentKm} km',
-              style: const TextStyle(fontSize: 16),
-            ),
-            const Divider(height: 30),
-            const Text(
-              'Histórico de Manutenções',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
+            Text('Tipo: ${vehicle.type == 'car' ? 'Carro' : 'Moto'}'),
+            Text('Quilometragem: ${vehicle.currentKm} km'),
+            const SizedBox(height: 20),
+            const Text('Manutenções:', style: TextStyle(fontSize: 18)),
             Expanded(
               child: ListView.builder(
-                itemCount: widget.vehicle.maintenances.length,
-                itemBuilder: (context, index) {
-                  final maintenance = widget.vehicle.maintenances[index];
-                  return Card(
-                    child: ListTile(
-                      title: Text(maintenance.type),
-                      subtitle: Text(maintenance.description),
-                      trailing: Text(
-                        '${maintenance.date.day}/${maintenance.date.month}/${maintenance.date.year}',
-                      ),
-                    ),
-                  );
-                },
+                itemCount: vehicle.maintenances.length,
+                itemBuilder: (ctx, index) => ListTile(
+                  title: Text(vehicle.maintenances[index].type),
+                  subtitle: Text(vehicle.maintenances[index].description),
+                ),
               ),
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          await Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => Container(),
-            ),
-          );
-          setState(() {}); // Atualiza a lista após adicionar manutenção
-        },
+        onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (ctx) => AddMaintenanceScreen(vehicle: vehicle),
+          ),
+        ),
         child: const Icon(Icons.add),
       ),
     );

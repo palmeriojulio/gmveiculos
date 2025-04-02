@@ -2,7 +2,7 @@ class Vehicle {
   final String id;
   final String name;
   final String type;
-  final int currentKm;
+  int currentKm;
   List<Maintenance> maintenances;
 
   Vehicle({
@@ -16,12 +16,14 @@ class Vehicle {
 
 class Maintenance {
   final String type;
-  final DateTime date;
   final String description;
+  final DateTime date;
+  final int km;
 
   Maintenance({
     required this.type,
-    required this.date,
     required this.description,
+    required this.date,
+    required this.km,
   });
 }

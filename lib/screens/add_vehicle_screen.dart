@@ -4,8 +4,7 @@ import '../models/vehicle.dart';
 class AddVehicleScreen extends StatefulWidget {
   final Function(Vehicle) onVehicleAdded;
 
-  const AddVehicleScreen(void Function(Vehicle newVehicle) addVehicle,
-      {super.key, required this.onVehicleAdded});
+  const AddVehicleScreen({super.key, required this.onVehicleAdded});
 
   @override
   State<AddVehicleScreen> createState() => _AddVehicleScreenState();
@@ -36,21 +35,15 @@ class _AddVehicleScreenState extends State<AddVehicleScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Adicionar Veículo'),
-        centerTitle: true,
-        titleTextStyle: const TextStyle(
-            fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
         backgroundColor: const Color.fromARGB(47, 102, 127, 100),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-        ),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.only(
             // Adiciona margens ao widget
             top: 60, // Margem superior
-            left: 20, // Margem esquerda
-            right: 20 // Margem direita
+            left: 40, // Margem esquerda
+            right: 40 // Margem direita
             ),
         child: Form(
           key: _formKey,
@@ -58,47 +51,43 @@ class _AddVehicleScreenState extends State<AddVehicleScreen> {
             children: [
               TextFormField(
                 controller: _nameController,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   labelText: 'Nome do Veículo',
-                  prefixIcon: Icon(Icons.directions_car),
+                  prefixIcon: const Icon(Icons.directions_car),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                    borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Por favor insira um nome';
-                  }
-                  return null;
-                },
+                validator: (value) =>
+                    value!.isEmpty ? 'Campo obrigatório' : null,
               ),
               const SizedBox(height: 20),
               TextFormField(
                 controller: _kmController,
-                decoration: const InputDecoration(
-                  labelText: 'Quilometragem Atual',
-                  prefixIcon: Icon(Icons.speed),
+                decoration: InputDecoration(
+                  labelText: 'Quilometragem',
+                  prefixIcon: const Icon(Icons.speed),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                    borderRadius: BorderRadius.circular(12),
                   ),
                 ),
                 keyboardType: TextInputType.number,
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Por favor insira a quilometragem';
-                  }
-                  if (int.tryParse(value) == null) {
-                    return 'Valor inválido';
-                  }
+                  if (value!.isEmpty) return 'Campo obrigatório';
+                  if (int.tryParse(value) == null) return 'Valor inválido';
                   return null;
                 },
               ),
               const SizedBox(height: 20),
               DropdownButtonFormField<String>(
                 value: _selectedType,
-                decoration: const InputDecoration(
-                    labelText: 'Tipo de Veículo',
-                    prefixIcon: Icon(Icons.directions_car)),
+                decoration: InputDecoration(
+                  labelText: 'Tipo de Veículo',
+                  prefixIcon: const Icon(Icons.type_specimen),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
                 items: const [
                   DropdownMenuItem(
                     value: 'car',
@@ -108,10 +97,6 @@ class _AddVehicleScreenState extends State<AddVehicleScreen> {
                     value: 'motorcycle',
                     child: Text('Moto'),
                   ),
-                  DropdownMenuItem(
-                    value: 'quadricycle',
-                    child: Text('Quadriciclo'),
-                  ),
                 ],
                 onChanged: (value) {
                   setState(() {
@@ -119,29 +104,24 @@ class _AddVehicleScreenState extends State<AddVehicleScreen> {
                   });
                 },
               ),
-              const SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: _submitForm,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF2F667F),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 145, vertical: 5),
-                ),
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.add_box, color: Colors.white),
-                    SizedBox(width: 8),
-                    Text(
-                      "Adicionar",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 17,
-                      ),
+              const SizedBox(height: 20),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  onPressed: _submitForm,
+                  icon: const Icon(Icons.save, color: Colors.white),
+                  label: const Text(
+                    'Salvar Veículo',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF2F667F),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
                     ),
-                  ],
+                  ),
                 ),
-              ),
+              )
             ],
           ),
         ),
