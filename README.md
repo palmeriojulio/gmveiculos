@@ -2,7 +2,7 @@
 
 ## Matéria: Desenvolvimento de Aplicativos Móveis
 
-### Unidade 02 - Atividade 2
+### Unidade 02 - Atividade 2 - Finalizada
 
 **Tarefa:** Desenvolver um projeto de aplicativo com operações básicas de manipulação de dados (listar, inserir, ler, atualizar e excluir), incluindo autenticação para acesso restrito a usuários cadastrados.
 
@@ -25,7 +25,7 @@ O GM Veículo é um aplicativo para gerenciar a manutenção preventiva de veíc
 
 ---
 
-### Unidade 03 - Atividade 3
+### Unidade 03 - Atividade 3 - Finalizada
 
 **Tarefa:** Implementar o aplicativo projetado na unidade anterior.
 
