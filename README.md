@@ -11,6 +11,15 @@
 - Protótipos de tela (digitais ou desenhados à mão).
 - Organização do projeto em um arquivo PDF, estruturado como uma proposta para investidores.
 
+---
+
+## GM Veículos
+
+### Proposta de Projeto: GM Veículo - Gerenciador de Manutenção de Veículos
+
+**Descrição:**  
+O GM Veículo é um aplicativo para gerenciar a manutenção preventiva de veículos (carros, motos, quadriciclos, etc.), com lembretes personalizados baseados em quilometragem ou tempo. O objetivo é evitar esquecimentos críticos, como troca de óleo, filtros, pastilhas de freio e outras revisões periódicas.
+
 **Protótipo:**
 ![Protótipo de Tela](assets/prototipo.png)
 
@@ -25,11 +34,3 @@
 - Não é necessário persistência de dados ou autenticação.
 - Enviar o projeto compactado (excluindo diretórios `.dart_tool`, `.idea`, `.build`) ou fornecer o link de um repositório público.
 
----
-
-## GM Veículos
-
-### Proposta de Projeto: GM Veículo - Gerenciador de Manutenção de Veículos
-
-**Descrição:**  
-O GM Veículo é um aplicativo para gerenciar a manutenção preventiva de veículos (carros, motos, quadriciclos, etc.), com lembretes personalizados baseados em quilometragem ou tempo. O objetivo é evitar esquecimentos críticos, como troca de óleo, filtros, pastilhas de freio e outras revisões periódicas.
